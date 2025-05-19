@@ -1,5 +1,6 @@
 package com.janko.placeme;
 
+import com.janko.placeme.block.ModBlocks;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -11,6 +12,6 @@ public class PlaceMe implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-
+		ModBlocks.registerBlocks();
 	}
 }
