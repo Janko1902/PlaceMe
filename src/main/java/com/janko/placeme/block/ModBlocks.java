@@ -1,6 +1,7 @@
 package com.janko.placeme.block;
 
 import com.janko.placeme.PlaceMe;
+import com.janko.placeme.block.custom.RabbitStewBowlBlock;
 import com.janko.placeme.block.custom.SoupStewBowlBlock;
 import com.janko.placeme.block.custom.BowlBlock;
 import com.janko.placeme.block.custom.PumpkinPieBlock;
@@ -24,7 +25,7 @@ public class ModBlocks {
     public static final Block MUSHROOM_STEW_BOWL = registerBlock("mushroom_stew_bowl",
             new SoupStewBowlBlock(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE)));
     public static final Block RABBIT_STEW_BOWL = registerBlock("rabbit_stew_bowl",
-            new SoupStewBowlBlock(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE).nonOpaque()));
+            new RabbitStewBowlBlock(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE).nonOpaque()));
     //TODO: effects, !player.canConsume(true)
     public static final Block SUSPICIOUS_STEW_BOWL = registerBlock("suspicious_stew_bowl",
             new SoupStewBowlBlock(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE)));
