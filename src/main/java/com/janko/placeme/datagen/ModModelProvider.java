@@ -40,6 +40,12 @@ public class ModModelProvider extends FabricModelProvider {
                                 .register(Direction.WEST, 3, createVariant(3, VariantSettings.Rotation.R270))
                         )
         );
+
+        blockStateModelGenerator.registerSimpleState(ModBlocks.BOWL);
+        blockStateModelGenerator.registerSimpleState(ModBlocks.BEETROOT_SOUP_BOWL);
+        blockStateModelGenerator.registerSimpleState(ModBlocks.MUSHROOM_STEW_BOWL);
+        blockStateModelGenerator.registerSimpleState(ModBlocks.RABBIT_STEW_BOWL);
+        blockStateModelGenerator.registerSimpleState(ModBlocks.SUSPICIOUS_STEW_BOWL);
     }
 
     @Override
