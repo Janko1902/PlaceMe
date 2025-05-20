@@ -2,13 +2,21 @@ package com.janko.placeme.block.custom;
 
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
+import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.stat.StatFormatter;
+import net.minecraft.stat.Stats;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.util.BlockMirror;
-import net.minecraft.util.BlockRotation;
+import net.minecraft.util.*;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
@@ -17,6 +25,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
+import net.minecraft.world.event.GameEvent;
 
 public class PumpkinPieBlock extends Block {
     public static final int MAX_BITES = 4;
@@ -79,6 +88,39 @@ public class PumpkinPieBlock extends Block {
         int bite = state.get(BITES);
         Direction facing = state.get(FACING);
         return SHAPES[bite][facing.getHorizontal()];
+    }
+
+    @Override
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        if (world.isClient) {
+            if (tryEat(world, pos, state, player).isAccepted()) {
+                return ActionResult.SUCCESS;
+            }
+
+            if (player.getStackInHand(Hand.MAIN_HAND).isEmpty()) {
+                return ActionResult.CONSUME;
+            }
+        }
+
+        return tryEat(world, pos, state, player);
+    }
+
+    protected static ActionResult tryEat(WorldAccess world, BlockPos pos, BlockState state, PlayerEntity player) {
+        if (!player.canConsume(false)) {
+            return ActionResult.PASS;
+        } else {
+            player.getHungerManager().add(2, 1.2F);
+            int i = (Integer)state.get(BITES);
+            world.emitGameEvent(player, GameEvent.EAT, pos);
+            if (i < 3) {
+                world.setBlockState(pos, state.with(BITES, i + 1), Block.NOTIFY_ALL);
+            } else {
+                world.removeBlock(pos, false);
+                world.emitGameEvent(player, GameEvent.BLOCK_DESTROY, pos);
+            }
+
+            return ActionResult.SUCCESS;
+        }
     }
 
     @Override
