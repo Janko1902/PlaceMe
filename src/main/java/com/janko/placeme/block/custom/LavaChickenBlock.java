@@ -72,7 +72,7 @@ public class LavaChickenBlock extends Block {
             world.removeBlock(pos, false);
             world.emitGameEvent(player, GameEvent.BLOCK_DESTROY, pos);
 
-            player.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 600), player);
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 600, 1), player);
             player.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 600), player);
 
             player.setOnFireFor(30);
