@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "placeme:block/lava_chicken",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "placeme:block/lava_chicken"
+    },
+    "facing=south": {
+      "model": "placeme:block/lava_chicken",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "placeme:block/lava_chicken",
+      "y": 270
+    }
+  }
+}

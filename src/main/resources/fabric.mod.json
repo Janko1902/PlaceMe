@@ -5,7 +5,8 @@
 	"name": "PlaceMe!",
 	"description": "Lets you place Food as blocks just like Cake!",
 	"authors": [
-		"Janko"
+		"Janko",
+		"Lesb"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
@@ -17,6 +18,9 @@
 	"entrypoints": {
 		"main": [
 			"com.janko.placeme.PlaceMe"
+		],
+		"client": [
+			"com.janko.placeme.PlaceMeClient"
 		],
 		"fabric-datagen": [
 			"com.janko.placeme.PlaceMeDataGenerator"

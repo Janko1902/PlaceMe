@@ -2,6 +2,7 @@ package com.janko.placeme.datagen;
 
 import com.janko.placeme.block.ModBlocks;
 import com.janko.placeme.block.custom.PumpkinPieBlock;
+import com.janko.placeme.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;
@@ -46,11 +47,15 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleState(ModBlocks.MUSHROOM_STEW_BOWL);
         blockStateModelGenerator.registerSimpleState(ModBlocks.RABBIT_STEW_BOWL);
         blockStateModelGenerator.registerSimpleState(ModBlocks.SUSPICIOUS_STEW_BOWL);
+
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.RAW_CHICKEN);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.COOKED_CHICKEN);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.LAVA_CHICKEN);
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-
+        itemModelGenerator.register(ModItems.LAVA_CHICKEN, Models.GENERATED);
     }
 
     private BlockStateVariant createVariant(int bite, VariantSettings.Rotation rotation) {

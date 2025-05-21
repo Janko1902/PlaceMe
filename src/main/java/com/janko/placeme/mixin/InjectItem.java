@@ -2,6 +2,7 @@ package com.janko.placeme.mixin;
 
 import com.janko.placeme.block.ModBlocks;
 import com.janko.placeme.util.ItemBlockPair;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.Items;
@@ -11,7 +12,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.*;
 
 @Mixin(Item.class)
 public class InjectItem {
@@ -22,12 +22,16 @@ public class InjectItem {
     )
     private void useItems(ItemUsageContext ctx, CallbackInfoReturnable<ActionResult> cir) {
         ItemBlockPair[] pairs = {
-                new ItemBlockPair(Items.PUMPKIN_PIE, ModBlocks.PUMPKIN_PIE),
+                new ItemBlockPair(Items.PUMPKIN_PIE, Blocks.CAKE),
+
                 new ItemBlockPair(Items.BOWL, ModBlocks.BOWL),
                 new ItemBlockPair(Items.BEETROOT_SOUP, ModBlocks.BEETROOT_SOUP_BOWL),
                 new ItemBlockPair(Items.MUSHROOM_STEW, ModBlocks.MUSHROOM_STEW_BOWL),
                 new ItemBlockPair(Items.RABBIT_STEW, ModBlocks.RABBIT_STEW_BOWL),
-                new ItemBlockPair(Items.SUSPICIOUS_STEW, ModBlocks.SUSPICIOUS_STEW_BOWL)
+                new ItemBlockPair(Items.SUSPICIOUS_STEW, ModBlocks.SUSPICIOUS_STEW_BOWL),
+
+                new ItemBlockPair(Items.CHICKEN, ModBlocks.RAW_CHICKEN),
+                new ItemBlockPair(Items.COOKED_CHICKEN, ModBlocks.COOKED_CHICKEN),
         };
 
         for (ItemBlockPair pair : pairs) {
