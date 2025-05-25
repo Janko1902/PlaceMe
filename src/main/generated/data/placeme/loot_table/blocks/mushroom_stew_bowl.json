@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "placeme:mushroom_stew_bowl"
+          "name": "minecraft:mushroom_stew"
         }
       ],
       "rolls": 1.0

@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "placeme:suspicious_stew_bowl"
+          "name": "minecraft:suspicious_stew"
         }
       ],
       "rolls": 1.0

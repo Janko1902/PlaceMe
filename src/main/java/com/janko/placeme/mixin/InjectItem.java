@@ -22,7 +22,7 @@ public class InjectItem {
     )
     private void useItems(ItemUsageContext ctx, CallbackInfoReturnable<ActionResult> cir) {
         ItemBlockPair[] pairs = {
-                new ItemBlockPair(Items.PUMPKIN_PIE, Blocks.CAKE),
+                new ItemBlockPair(Items.PUMPKIN_PIE, ModBlocks.PUMPKIN_PIE),
 
                 new ItemBlockPair(Items.BOWL, ModBlocks.BOWL),
                 new ItemBlockPair(Items.BEETROOT_SOUP, ModBlocks.BEETROOT_SOUP_BOWL),
@@ -35,7 +35,12 @@ public class InjectItem {
         };
 
         for (ItemBlockPair pair : pairs) {
-            if (ctx.getStack().isOf(pair.item)) {
+            if (ctx.getStack().isOf(pair.item) && !ctx.getPlayer().getHungerManager().isNotFull()) {
+                pair.block.asItem().useOnBlock(ctx);
+                cir.setReturnValue(ActionResult.SUCCESS);
+                return;
+            }
+            if (ctx.getStack().isOf(pair.item) && ctx.getPlayer().isSneaking()) {
                 pair.block.asItem().useOnBlock(ctx);
                 cir.setReturnValue(ActionResult.SUCCESS);
                 return;

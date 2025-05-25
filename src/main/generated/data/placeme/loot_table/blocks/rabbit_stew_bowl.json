@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "placeme:rabbit_stew_bowl"
+          "name": "minecraft:rabbit_stew"
         }
       ],
       "rolls": 1.0

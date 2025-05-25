@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "placeme:bowl"
+          "name": "minecraft:bowl"
         }
       ],
       "rolls": 1.0

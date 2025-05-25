@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "placeme:beetroot_soup_bowl"
+          "name": "minecraft:beetroot_soup"
         }
       ],
       "rolls": 1.0

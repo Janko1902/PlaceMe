@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "placeme:pumpkin_pie"
+          "name": "minecraft:pumpkin_pie"
         }
       ],
       "rolls": 1.0
