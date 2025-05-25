@@ -38,16 +38,16 @@ public class ModBlocks {
 
 
     private static Block registerBlockWithoutItem(String name, Block block) {
-        return Registry.register(Registries.BLOCK, Identifier.of(PlaceMe.MOD_ID, name), block);
+        return Registry.register(Registries.BLOCK, PlaceMe.id(name), block);
     }
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
-        return Registry.register(Registries.BLOCK, Identifier.of(PlaceMe.MOD_ID, name), block);
+        return Registry.register(Registries.BLOCK, PlaceMe.id(name), block);
     }
 
     private static void registerBlockItem(String name, Block block) {
-        Registry.register(Registries.ITEM, Identifier.of(PlaceMe.MOD_ID, name),
+        Registry.register(Registries.ITEM, PlaceMe.id(name),
                 new BlockItem(block, new Item.Settings()));
     }
 
