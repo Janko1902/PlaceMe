@@ -11,41 +11,41 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
 public class ModBlocks {
-    public static final Block PUMPKIN_PIE = registerBlock("pumpkin_pie",
+    public static final PumpkinPieBlock PUMPKIN_PIE = registerBlock("pumpkin_pie",
             new PumpkinPieBlock(AbstractBlock.Settings.copy(Blocks.CAKE).nonOpaque()));
 
-    public static final Block BOWL = registerBlock("bowl",
+    public static final BowlBlock BOWL = registerBlock("bowl",
             new BowlBlock(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE).nonOpaque()));
-    public static final Block BEETROOT_SOUP_BOWL = registerBlock("beetroot_soup_bowl",
+    public static final SoupStewBowlBlock BEETROOT_SOUP_BOWL = registerBlock("beetroot_soup_bowl",
             new SoupStewBowlBlock(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE).nonOpaque()));
-    public static final Block MUSHROOM_STEW_BOWL = registerBlock("mushroom_stew_bowl",
+    public static final SoupStewBowlBlock MUSHROOM_STEW_BOWL = registerBlock("mushroom_stew_bowl",
             new SoupStewBowlBlock(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE).nonOpaque()));
-    public static final Block RABBIT_STEW_BOWL = registerBlock("rabbit_stew_bowl",
-            new RabbitStewBowlBlock(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE).nonOpaque().nonOpaque()));
+    public static final RabbitStewBowlBlock RABBIT_STEW_BOWL = registerBlock("rabbit_stew_bowl",
+            new RabbitStewBowlBlock(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE).nonOpaque()));
     //TODO: effects, !player.canConsume(true)
-    public static final Block SUSPICIOUS_STEW_BOWL = registerBlock("suspicious_stew_bowl",
-            new SoupStewBowlBlock(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE).nonOpaque()));
+    public static final SuspiciousStewBlock SUSPICIOUS_STEW_BOWL = registerBlock("suspicious_stew_bowl",
+            new SuspiciousStewBlock(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE).nonOpaque()));
 
-    public static final Block RAW_CHICKEN = registerBlock("raw_chicken",
+    public static final RawChickenBlock RAW_CHICKEN = registerBlock("raw_chicken",
             new RawChickenBlock(AbstractBlock.Settings.create().nonOpaque()));
-    public static final Block COOKED_CHICKEN = registerBlock("cooked_chicken",
+    public static final CookedChickenBlock COOKED_CHICKEN = registerBlock("cooked_chicken",
             new CookedChickenBlock(AbstractBlock.Settings.create().nonOpaque()));
     //TODO: make it obtainable by throwing raw chicken into lava
-    public static final Block LAVA_CHICKEN = registerBlockWithoutItem("lava_chicken",
+    public static final LavaChickenBlock LAVA_CHICKEN = registerBlockWithoutItem("lava_chicken",
             new LavaChickenBlock(AbstractBlock.Settings.create().luminance(state -> 4).nonOpaque()));
 
 
-    private static Block registerBlockWithoutItem(String name, Block block) {
+    private static <B extends Block> B registerBlockWithoutItem(String name, B block) {
         return Registry.register(Registries.BLOCK, PlaceMe.id(name), block);
     }
 
-    private static Block registerBlock(String name, Block block) {
+    private static <B extends Block> B registerBlock(String name, B block) {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, PlaceMe.id(name), block);
     }
 
-    private static void registerBlockItem(String name, Block block) {
-        Registry.register(Registries.ITEM, PlaceMe.id(name),
+    private static BlockItem registerBlockItem(String name, Block block) {
+        return Registry.register(Registries.ITEM, PlaceMe.id(name),
                 new BlockItem(block, new Item.Settings()));
     }
 
