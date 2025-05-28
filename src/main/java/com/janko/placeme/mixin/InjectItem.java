@@ -32,6 +32,10 @@ public class InjectItem {
 
                 new ItemBlockPair(Items.CHICKEN, ModBlocks.RAW_CHICKEN),
                 new ItemBlockPair(Items.COOKED_CHICKEN, ModBlocks.COOKED_CHICKEN),
+
+                new ItemBlockPair(Items.APPLE, ModBlocks.APPLE),
+                new ItemBlockPair(Items.GOLDEN_APPLE, ModBlocks.GOLDEN_APPLE),
+                new ItemBlockPair(Items.ENCHANTED_GOLDEN_APPLE, ModBlocks.ENCHANTED_GOLDEN_APPLE)
         };
 
         for (ItemBlockPair pair : pairs) {

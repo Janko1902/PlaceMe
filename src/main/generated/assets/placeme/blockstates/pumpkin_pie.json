@@ -1,67 +1,67 @@
 {
   "variants": {
     "bites=0,facing=east": {
-      "model": "placeme:block/pumpkin_pie_0",
+      "model": "placeme:block/pumpkin_pie_-1",
       "y": 90
     },
     "bites=0,facing=north": {
-      "model": "placeme:block/pumpkin_pie_0",
+      "model": "placeme:block/pumpkin_pie_-1",
       "y": 0
     },
     "bites=0,facing=south": {
-      "model": "placeme:block/pumpkin_pie_0",
+      "model": "placeme:block/pumpkin_pie_-1",
       "y": 180
     },
     "bites=0,facing=west": {
-      "model": "placeme:block/pumpkin_pie_0",
+      "model": "placeme:block/pumpkin_pie_-1",
       "y": 270
     },
     "bites=1,facing=east": {
-      "model": "placeme:block/pumpkin_pie_1",
+      "model": "placeme:block/pumpkin_pie_0",
       "y": 90
     },
     "bites=1,facing=north": {
-      "model": "placeme:block/pumpkin_pie_1",
+      "model": "placeme:block/pumpkin_pie_0",
       "y": 0
     },
     "bites=1,facing=south": {
-      "model": "placeme:block/pumpkin_pie_1",
+      "model": "placeme:block/pumpkin_pie_0",
       "y": 180
     },
     "bites=1,facing=west": {
-      "model": "placeme:block/pumpkin_pie_1",
+      "model": "placeme:block/pumpkin_pie_0",
       "y": 270
     },
     "bites=2,facing=east": {
-      "model": "placeme:block/pumpkin_pie_2",
+      "model": "placeme:block/pumpkin_pie_1",
       "y": 90
     },
     "bites=2,facing=north": {
-      "model": "placeme:block/pumpkin_pie_2",
+      "model": "placeme:block/pumpkin_pie_1",
       "y": 0
     },
     "bites=2,facing=south": {
-      "model": "placeme:block/pumpkin_pie_2",
+      "model": "placeme:block/pumpkin_pie_1",
       "y": 180
     },
     "bites=2,facing=west": {
-      "model": "placeme:block/pumpkin_pie_2",
+      "model": "placeme:block/pumpkin_pie_1",
       "y": 270
     },
     "bites=3,facing=east": {
-      "model": "placeme:block/pumpkin_pie_3",
+      "model": "placeme:block/pumpkin_pie_2",
       "y": 90
     },
     "bites=3,facing=north": {
-      "model": "placeme:block/pumpkin_pie_3",
+      "model": "placeme:block/pumpkin_pie_2",
       "y": 0
     },
     "bites=3,facing=south": {
-      "model": "placeme:block/pumpkin_pie_3",
+      "model": "placeme:block/pumpkin_pie_2",
       "y": 180
     },
     "bites=3,facing=west": {
-      "model": "placeme:block/pumpkin_pie_3",
+      "model": "placeme:block/pumpkin_pie_2",
       "y": 270
     }
   }

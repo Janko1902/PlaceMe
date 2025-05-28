@@ -33,6 +33,13 @@ public class ModBlocks {
     public static final LavaChickenBlock LAVA_CHICKEN = registerBlockWithoutItem("lava_chicken",
             new LavaChickenBlock(AbstractBlock.Settings.create().luminance(state -> 4).nonOpaque()));
 
+    public static final AppleBlock APPLE = registerBlock("apple",
+            new AppleBlock(AbstractBlock.Settings.create().nonOpaque().breakInstantly()));
+    public static final GoldenAppleBlock GOLDEN_APPLE = registerBlock("golden_apple",
+            new GoldenAppleBlock(AbstractBlock.Settings.create().nonOpaque().breakInstantly()));
+    public static final EnchantedGoldenAppleBlock ENCHANTED_GOLDEN_APPLE = registerBlock("enchanted_golden_apple",
+            new EnchantedGoldenAppleBlock(AbstractBlock.Settings.create().luminance(state -> 4).nonOpaque().breakInstantly()));
+
 
     private static <B extends Block> B registerBlockWithoutItem(String name, B block) {
         return Registry.register(Registries.BLOCK, PlaceMe.id(name), block);

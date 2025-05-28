@@ -16,7 +16,11 @@ public class PlaceMeClient implements ClientModInitializer {
 
                 ModBlocks.RAW_CHICKEN, RenderLayer.getCutout(),
                 ModBlocks.COOKED_CHICKEN, RenderLayer.getCutout(),
-                ModBlocks.LAVA_CHICKEN, RenderLayer.getCutout()
+                ModBlocks.LAVA_CHICKEN, RenderLayer.getCutout(),
+
+                ModBlocks.APPLE, RenderLayer.getCutout(),
+                ModBlocks.GOLDEN_APPLE, RenderLayer.getCutout(),
+                ModBlocks.ENCHANTED_GOLDEN_APPLE, RenderLayer.getCutout()
         );
 
         renderLayerMap.forEach((block, layer) -> {

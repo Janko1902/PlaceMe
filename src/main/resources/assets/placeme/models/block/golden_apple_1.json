@@ -1,0 +1,8 @@
+{
+  "parent": "placeme:block/apple_1",
+  "textures": {
+    "0": "placeme:block/golden_apple",
+    "1": "placeme:block/empty",
+    "particle": "placeme:block/golden_apple"
+  }
+}

@@ -1,10 +1,14 @@
 package com.janko.placeme.datagen;
 
 import com.janko.placeme.block.ModBlocks;
+import com.janko.placeme.block.custom.AppleBlock;
+import com.janko.placeme.block.custom.EnchantedGoldenAppleBlock;
+import com.janko.placeme.block.custom.GoldenAppleBlock;
 import com.janko.placeme.block.custom.PumpkinPieBlock;
 import com.janko.placeme.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
+import net.minecraft.block.BlockState;
 import net.minecraft.data.client.*;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
@@ -20,25 +24,9 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.blockStateCollector.accept(
                 VariantsBlockStateSupplier.create(ModBlocks.PUMPKIN_PIE)
                         .coordinate(BlockStateVariantMap.create(Properties.HORIZONTAL_FACING, PumpkinPieBlock.BITES)
-                                .register(Direction.NORTH, 0, createVariant(0, VariantSettings.Rotation.R0))
-                                .register(Direction.EAST, 0, createVariant(0, VariantSettings.Rotation.R90))
-                                .register(Direction.SOUTH, 0, createVariant(0, VariantSettings.Rotation.R180))
-                                .register(Direction.WEST, 0, createVariant(0, VariantSettings.Rotation.R270))
-
-                                .register(Direction.NORTH, 1, createVariant(1, VariantSettings.Rotation.R0))
-                                .register(Direction.EAST, 1, createVariant(1, VariantSettings.Rotation.R90))
-                                .register(Direction.SOUTH, 1, createVariant(1, VariantSettings.Rotation.R180))
-                                .register(Direction.WEST, 1, createVariant(1, VariantSettings.Rotation.R270))
-
-                                .register(Direction.NORTH, 2, createVariant(2, VariantSettings.Rotation.R0))
-                                .register(Direction.EAST, 2, createVariant(2, VariantSettings.Rotation.R90))
-                                .register(Direction.SOUTH, 2, createVariant(2, VariantSettings.Rotation.R180))
-                                .register(Direction.WEST, 2, createVariant(2, VariantSettings.Rotation.R270))
-
-                                .register(Direction.NORTH, 3, createVariant(3, VariantSettings.Rotation.R0))
-                                .register(Direction.EAST, 3, createVariant(3, VariantSettings.Rotation.R90))
-                                .register(Direction.SOUTH, 3, createVariant(3, VariantSettings.Rotation.R180))
-                                .register(Direction.WEST, 3, createVariant(3, VariantSettings.Rotation.R270))
+                                .register((direction, bites) ->
+                                        createVariant("pumpkin_pie", bites - 1, direction)
+                                )
                         )
         );
 
@@ -51,6 +39,31 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.RAW_CHICKEN);
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.COOKED_CHICKEN);
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.LAVA_CHICKEN);
+
+        blockStateModelGenerator.blockStateCollector.accept(
+                VariantsBlockStateSupplier.create(ModBlocks.APPLE)
+                        .coordinate(BlockStateVariantMap.create(Properties.HORIZONTAL_FACING, AppleBlock.APPLES)
+                                .register((direction, apples) ->
+                                        createVariant("apple", apples - 1, direction)
+                                )
+                        )
+        );
+        blockStateModelGenerator.blockStateCollector.accept(
+                VariantsBlockStateSupplier.create(ModBlocks.GOLDEN_APPLE)
+                        .coordinate(BlockStateVariantMap.create(Properties.HORIZONTAL_FACING, GoldenAppleBlock.APPLES)
+                                .register((direction, apples) ->
+                                        createVariant("golden_apple", apples - 1, direction)
+                                )
+                        )
+        );
+        blockStateModelGenerator.blockStateCollector.accept(
+                VariantsBlockStateSupplier.create(ModBlocks.ENCHANTED_GOLDEN_APPLE)
+                        .coordinate(BlockStateVariantMap.create(Properties.HORIZONTAL_FACING, EnchantedGoldenAppleBlock.APPLES)
+                                .register((direction, apples) ->
+                                        createVariant("enchanted_golden_apple", apples - 1, direction)
+                                )
+                        )
+        );
     }
 
     @Override
@@ -58,9 +71,15 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.LAVA_CHICKEN, Models.GENERATED);
     }
 
-    private BlockStateVariant createVariant(int bite, VariantSettings.Rotation rotation) {
+    private BlockStateVariant createVariant(String modelBaseName, int variant, Direction direction) {
+        VariantSettings.Rotation rotation = switch (direction) {
+            case EAST -> VariantSettings.Rotation.R90;
+            case SOUTH -> VariantSettings.Rotation.R180;
+            case WEST -> VariantSettings.Rotation.R270;
+            default -> VariantSettings.Rotation.R0;
+        };
         return BlockStateVariant.create()
-                .put(VariantSettings.MODEL, Identifier.of("placeme", "block/pumpkin_pie_" + bite))
+                .put(VariantSettings.MODEL, Identifier.of("placeme", "block/" + modelBaseName + "_" + variant))
                 .put(VariantSettings.Y, rotation);
     }
 }

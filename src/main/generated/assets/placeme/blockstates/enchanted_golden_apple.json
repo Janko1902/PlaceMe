@@ -1,0 +1,68 @@
+{
+  "variants": {
+    "apples=1,facing=east": {
+      "model": "placeme:block/enchanted_golden_apple_0",
+      "y": 90
+    },
+    "apples=1,facing=north": {
+      "model": "placeme:block/enchanted_golden_apple_0",
+      "y": 0
+    },
+    "apples=1,facing=south": {
+      "model": "placeme:block/enchanted_golden_apple_0",
+      "y": 180
+    },
+    "apples=1,facing=west": {
+      "model": "placeme:block/enchanted_golden_apple_0",
+      "y": 270
+    },
+    "apples=2,facing=east": {
+      "model": "placeme:block/enchanted_golden_apple_1",
+      "y": 90
+    },
+    "apples=2,facing=north": {
+      "model": "placeme:block/enchanted_golden_apple_1",
+      "y": 0
+    },
+    "apples=2,facing=south": {
+      "model": "placeme:block/enchanted_golden_apple_1",
+      "y": 180
+    },
+    "apples=2,facing=west": {
+      "model": "placeme:block/enchanted_golden_apple_1",
+      "y": 270
+    },
+    "apples=3,facing=east": {
+      "model": "placeme:block/enchanted_golden_apple_2",
+      "y": 90
+    },
+    "apples=3,facing=north": {
+      "model": "placeme:block/enchanted_golden_apple_2",
+      "y": 0
+    },
+    "apples=3,facing=south": {
+      "model": "placeme:block/enchanted_golden_apple_2",
+      "y": 180
+    },
+    "apples=3,facing=west": {
+      "model": "placeme:block/enchanted_golden_apple_2",
+      "y": 270
+    },
+    "apples=4,facing=east": {
+      "model": "placeme:block/enchanted_golden_apple_3",
+      "y": 90
+    },
+    "apples=4,facing=north": {
+      "model": "placeme:block/enchanted_golden_apple_3",
+      "y": 0
+    },
+    "apples=4,facing=south": {
+      "model": "placeme:block/enchanted_golden_apple_3",
+      "y": 180
+    },
+    "apples=4,facing=west": {
+      "model": "placeme:block/enchanted_golden_apple_3",
+      "y": 270
+    }
+  }
+}
