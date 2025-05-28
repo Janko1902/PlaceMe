@@ -2,6 +2,7 @@ package com.janko.placeme.block.custom;
 
 import com.janko.placeme.block.ModBlocks;
 import net.minecraft.block.*;
+import net.minecraft.component.type.SuspiciousStewEffectsComponent;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.ActionResult;
