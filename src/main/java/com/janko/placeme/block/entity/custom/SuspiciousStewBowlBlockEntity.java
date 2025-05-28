@@ -1,6 +1,6 @@
-package com.janko.placeme.block.entity;
+package com.janko.placeme.block.entity.custom;
 
-import com.janko.placeme.block.ModBlockEntities;
+import com.janko.placeme.block.entity.ModBlockEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.component.type.SuspiciousStewEffectsComponent;
@@ -15,14 +15,13 @@ import net.minecraft.util.math.BlockPos;
 
 import java.util.Comparator;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicReference;
 
-public class SuspiciousStewBEntity extends BlockEntity{
+public class SuspiciousStewBowlBlockEntity extends BlockEntity{
 
     private SuspiciousStewEffectsComponent EFFECTS = SuspiciousStewEffectsComponent.DEFAULT;
 
-    public SuspiciousStewBEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.SUS_STEW_B_ENTITY, pos, state);
+    public SuspiciousStewBowlBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.SUSPICIOUS_STEW_BOWL_BE, pos, state);
     }
 
     @Override
@@ -38,8 +37,8 @@ public class SuspiciousStewBEntity extends BlockEntity{
         super.writeNbt(nbt, registryLookup);
     }
 
-    private static final String EFFECT_ID = "effectid";
-    private static final String EFFECT_DURATION = "effectduration";
+    private static final String EFFECT_ID = "effect_id";
+    private static final String EFFECT_DURATION = "effect_duration";
 
 
     @Override

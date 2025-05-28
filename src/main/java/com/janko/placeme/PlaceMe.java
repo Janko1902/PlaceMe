@@ -1,6 +1,6 @@
 package com.janko.placeme;
 
-import com.janko.placeme.block.ModBlockEntities;
+import com.janko.placeme.block.entity.ModBlockEntities;
 import com.janko.placeme.block.ModBlocks;
 import com.janko.placeme.item.ModItems;
 import net.fabricmc.api.ModInitializer;
@@ -19,8 +19,8 @@ public class PlaceMe implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		ModBlocks.registerBlocks();
+		ModBlocks.registerModBlocks();
 		ModItems.registerModItems();
-		ModBlockEntities.registerBlockEntities();
+		ModBlockEntities.registerModBlockEntities();
 	}
 }

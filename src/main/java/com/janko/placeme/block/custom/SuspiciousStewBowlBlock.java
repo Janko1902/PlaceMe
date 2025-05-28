@@ -1,7 +1,7 @@
 package com.janko.placeme.block.custom;
 
 import com.janko.placeme.block.ModBlocks;
-import com.janko.placeme.block.entity.SuspiciousStewBEntity;
+import com.janko.placeme.block.entity.custom.SuspiciousStewBowlBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.component.DataComponentTypes;
@@ -10,36 +10,26 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
-import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
-public class SuspiciousStewBlock extends SoupStewBowlBlock implements BlockEntityProvider{
-    public SuspiciousStewBlock(Settings settings) {
+public class SuspiciousStewBowlBlock extends SoupStewBowlBlock implements BlockEntityProvider{
+    public SuspiciousStewBowlBlock(Settings settings) {
         super(settings);
     }
 
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new SuspiciousStewBEntity(pos,state);
+        return new SuspiciousStewBowlBlockEntity(pos,state);
     }
-
-    private static final VoxelShape SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(4, 0, 4, 12, 1, 12),
-            Block.createCuboidShape(3, 1, 3, 13, 4, 13)
-    );
 
     @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
         if(!world.isClient) {
-            if (world.getBlockEntity(pos) instanceof SuspiciousStewBEntity bEntity) {
+            if (world.getBlockEntity(pos) instanceof SuspiciousStewBowlBlockEntity bEntity) {
                 foo = bEntity;
                 bEntity.addEffects(
                         itemStack.getOrDefault(DataComponentTypes.SUSPICIOUS_STEW_EFFECTS, SuspiciousStewEffectsComponent.DEFAULT)
@@ -49,11 +39,11 @@ public class SuspiciousStewBlock extends SoupStewBowlBlock implements BlockEntit
         super.onPlaced(world, pos, state, placer, itemStack);
     }
 
-    SuspiciousStewBEntity foo;
+    SuspiciousStewBowlBlockEntity foo;
 
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        if (!player.canConsume(false)) {
+        if (!player.canConsume(true)) {
             return ActionResult.PASS;
         } else {
             player.getHungerManager().add(6, 7.2F);
@@ -61,7 +51,7 @@ public class SuspiciousStewBlock extends SoupStewBowlBlock implements BlockEntit
 
             if(!world.isClient) {
                 BlockEntity be = world.getBlockEntity(pos);
-                if (be instanceof SuspiciousStewBEntity bEntity) {
+                if (be instanceof SuspiciousStewBowlBlockEntity bEntity) {
                     bEntity.applyEffects(player);
                 }
             }
@@ -73,19 +63,4 @@ public class SuspiciousStewBlock extends SoupStewBowlBlock implements BlockEntit
             return ActionResult.SUCCESS;
         }
     }
-
-    /*protected static ActionResult tryEat(WorldAccess world, BlockPos pos, BlockState state, PlayerEntity player) {
-
-    }*/
-
-    @Override
-    public VoxelShape getCullingShape(BlockState state, BlockView world, BlockPos pos) {
-        return SHAPE;
-    }
-
-    @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return SHAPE;
-    }
-
 }

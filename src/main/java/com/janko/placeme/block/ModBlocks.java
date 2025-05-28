@@ -17,20 +17,19 @@ public class ModBlocks {
     public static final BowlBlock BOWL = registerBlock("bowl",
             new BowlBlock(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE).nonOpaque()));
     public static final SoupStewBowlBlock BEETROOT_SOUP_BOWL = registerBlock("beetroot_soup_bowl",
-            new SoupStewBowlBlock(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE).nonOpaque()));
+            new SoupStewBowlBlock(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE).nonOpaque().strength(0.5F)));
     public static final SoupStewBowlBlock MUSHROOM_STEW_BOWL = registerBlock("mushroom_stew_bowl",
-            new SoupStewBowlBlock(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE).nonOpaque()));
+            new SoupStewBowlBlock(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE).nonOpaque().strength(0.5F)));
     public static final RabbitStewBowlBlock RABBIT_STEW_BOWL = registerBlock("rabbit_stew_bowl",
-            new RabbitStewBowlBlock(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE).nonOpaque()));
-    //TODO: effects, !player.canConsume(true)
-    public static final SuspiciousStewBlock SUSPICIOUS_STEW_BOWL = registerBlock("suspicious_stew_bowl",
-            new SuspiciousStewBlock(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE).nonOpaque()));
+            new RabbitStewBowlBlock(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE).nonOpaque().strength(0.5F)));
+    public static final SuspiciousStewBowlBlock SUSPICIOUS_STEW_BOWL = registerBlock("suspicious_stew_bowl",
+            new SuspiciousStewBowlBlock(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE).nonOpaque().strength(0.5F)));
 
     public static final RawChickenBlock RAW_CHICKEN = registerBlock("raw_chicken",
             new RawChickenBlock(AbstractBlock.Settings.create().nonOpaque()));
     public static final CookedChickenBlock COOKED_CHICKEN = registerBlock("cooked_chicken",
             new CookedChickenBlock(AbstractBlock.Settings.create().nonOpaque()));
-    //TODO: make it obtainable by throwing raw chicken into lava
+    //not obtainable, easter egg
     public static final LavaChickenBlock LAVA_CHICKEN = registerBlockWithoutItem("lava_chicken",
             new LavaChickenBlock(AbstractBlock.Settings.create().luminance(state -> 4).nonOpaque()));
 
@@ -49,7 +48,7 @@ public class ModBlocks {
                 new BlockItem(block, new Item.Settings()));
     }
 
-    public static void registerBlocks() {
+    public static void registerModBlocks() {
         PlaceMe.LOGGER.info("Registering Blocks for " + PlaceMe.MOD_ID);
     }
 }
