@@ -25,7 +25,7 @@ public class ModModelProvider extends FabricModelProvider {
                 VariantsBlockStateSupplier.create(ModBlocks.PUMPKIN_PIE)
                         .coordinate(BlockStateVariantMap.create(Properties.HORIZONTAL_FACING, PumpkinPieBlock.BITES)
                                 .register((direction, bites) ->
-                                        createVariant("pumpkin_pie", bites - 1, direction)
+                                        createVariant("pumpkin_pie", bites, direction)
                                 )
                         )
         );
