@@ -12,7 +12,7 @@
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/Janko1902/PlaceMe"
 	},
-	"license": "MIT",
+	"license": "JMDL-TPA",
 	"icon": "assets/placeme/icon.png",
 	"environment": "*",
 	"entrypoints": {
